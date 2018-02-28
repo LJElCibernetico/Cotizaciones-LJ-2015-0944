@@ -19,7 +19,7 @@ namespace CotizacionesLJ.BLL.Tests
             a.Descripcion = "Este no sirve";
             a.precio = 5000;
 
-            bool paso = CotizacionesBLL.Guardar(a);
+            bool paso = ArticulosBLL.Guardar(a);
             Assert.AreEqual(paso, true);
         }
 

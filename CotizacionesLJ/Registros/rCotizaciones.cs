@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CotizacionesLJ
+namespace CotizacionesLJ.Registros
 {
-    public partial class Form1 : Form
+    public partial class rCotizaciones : Form
     {
-        public Form1()
+        public rCotizaciones()
         {
             InitializeComponent();
         }

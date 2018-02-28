@@ -31,15 +31,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,17 +57,67 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\CotizacionesBLL.cs" />
-    <Compile Include="DAL\Contexto.cs" />
-    <Compile Include="Entidades\Articulos.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="BLL\ArticulosBLL.cs" />
+    <Compile Include="Consultas\cArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Consultas\cArticulos.Designer.cs">
+      <DependentUpon>cArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\cCotizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\cCotizaciones.Designer.cs">
+      <DependentUpon>cCotizaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Contexto.cs" />
+    <Compile Include="Detalle\dDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Detalle\dDetalle.Designer.cs">
+      <DependentUpon>dDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entidades\Articulos.cs" />
+    <Compile Include="Entidades\Cotizaciones.cs" />
+    <Compile Include="Entidades\CotizacionesDetalle.cs" />
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registros\rArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\rArticulos.Designer.cs">
+      <DependentUpon>rArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registros\rCotizaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registros\rCotizaciones.Designer.cs">
+      <DependentUpon>rCotizaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ReporteDeArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ReporteDeArticulos.Designer.cs">
+      <DependentUpon>ReporteDeArticulos.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Consultas\cArticulos.resx">
+      <DependentUpon>cArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\cCotizaciones.resx">
+      <DependentUpon>cCotizaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Detalle\dDetalle.resx">
+      <DependentUpon>dDetalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -69,7 +126,14 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Registros\rArticulos.resx">
+      <DependentUpon>rArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteDeArticulos.resx">
+      <DependentUpon>ReporteDeArticulos.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -85,8 +149,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\CotizacionesDB.sql" />
+    <Content Include="Database\ArticulosDB.sql" />
+    <None Include="Resources\Save-as_37111.png" />
+    <None Include="Resources\preview_search_find_locate_1551.png" />
+    <None Include="Resources\New_File_36861.png" />
+    <None Include="Resources\impresora.png" />
+    <None Include="Resources\DocumentEdit_40924.png" />
+    <None Include="Resources\delete_remove_page_document_16678.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

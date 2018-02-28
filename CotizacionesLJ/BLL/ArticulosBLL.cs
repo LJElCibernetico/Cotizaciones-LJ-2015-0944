@@ -9,7 +9,7 @@ using System.Text;
 
 namespace CotizacionesLJ.BLL
 {
-    public class CotizacionesBLL
+    public class ArticulosBLL
     {
         public static bool Guardar(Articulos a)
         {
